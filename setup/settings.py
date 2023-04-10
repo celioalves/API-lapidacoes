@@ -137,12 +137,24 @@ REST_FRAMEWORK = {
     # 'DEFAULT_AUTHENTICATION_CLASSES':[
     #     'rest_framework.authentication.BasicAuthentication',
     # ],
+    
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 20,
+
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '100/day',
-    }
+    },
+    # 'DEFAULT_PARSER_CLASSES': [
+    #     'rest_framework.parsers.JSONParser',
+    #     'rest_framework_xml.parsers.XMLParser',
+    # ],
+    # 'DEFAULT_RENDERER_CLASSES': [
+    #     'rest_framework.renderers.JSONRenderer',
+    #     'rest_framework_xml.renderers.XMLRenderer',
+    # ],
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -153,26 +165,19 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # CACHE
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#         'LOCATION': 'redis://127.0.0.1:6379/1',
+#         'OPTIONS': {
+#             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#         }
+#     }
+# }
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
 
-
-# paginação
-
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 20
-}
 
 #LOCALE
 
